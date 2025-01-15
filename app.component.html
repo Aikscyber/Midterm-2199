@@ -1,0 +1,48 @@
+// Aiko S. Ocampo
+// WD-302
+<div> 
+  Today's date :- {{presentDate}} 
+</div>
+
+<div> 
+  Today's date :- {{presentDate | date }}
+</div>
+
+<div>
+  This is a short date :- {{ presentDate | date:'shortDate'}} <br/>
+  This line shows the full date :- {{ presentDate | date:'fullDate'}} <br/>
+  This will show a formatted date :- {{presentDate | date: 'M/dd/yyyy'}} <br/>
+  This indicates the hours and minutes :- {{presentDate | date:'h:mm'}}<br/>
+  Date with uppercase :- {{presentDate | date:'fullDate ' | uppercase}}<br/>
+  Date with lowercase :- {{presentDate | date:'medium ' | lowercase}}<br/>
+</div>
+
+<div>
+  Seconds change to Time :- {{ time$ | async| date:'mediumTime'}}
+</div>
+
+<h3> Currency Pipe</h3>
+<p> {{price | currency: '':true}} </p>
+<p> {{price | currency: 'INR'}} </p>
+<div> 
+  <h4> Decimal pipe</h4>
+<p> {{decimalNum1 | number}} 
+<p> {{decimalNum2 | number}} 
+  <h3> Start index:- {{Fruits | slice:2}}</h3>
+  <h4> Start and end index:- {{Fruits | slice:1:4}}</h4>
+  <h5> Negative index:- {{Fruits | slice:-2}}</h5>
+  <h6> Negative start and end index:- {{Fruits | slice:-4:-2}}<h6>
+
+    <div *ngFor = "let item of testObject | keyvalue">
+      {{item.key}} : {{item.value}} </div>
+
+      <h2>
+        <h3> Json Pipe</h3>
+        <p> Object: {{testObject | json}}</p>
+        <p> Object with JsonPipe: {{ testObject | json }}</p>
+        <p>array: {{ testArray }}</p>
+
+        <p> Sort by increasing expiry dates</p>
+      </h2>
+
+<router-outlet />
